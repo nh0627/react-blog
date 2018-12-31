@@ -6,8 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react redux react-redux
 ---
-<p class="intro"><span class="dropcap">R</span>edux library is not only designed to work with React. Thus, we have to note that after installing React and Redux, and we need a third party library, React-Redux, which can let us use integrate React with Redux.
-</p>
+The Redux library is not only designed to work with React. Thus, we have to note that after installing React and Redux, and we need a third party library, React-Redux, which can let us use integrate React with Redux.
 
 #### Command to install Redux and Redux-React into React project
 npm install --save redux react-redux

@@ -17,7 +17,7 @@ tags: react app-practice
 ### Output
 <img src="{{ '/assets/img/2018-12-24-result.png' }}" alt="result">
 
-#### App Repo
+### App Repo
 [Here][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].

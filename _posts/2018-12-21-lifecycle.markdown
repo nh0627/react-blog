@@ -6,7 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react
 ---
-<p class="intro"><span class="dropcap">C</span>omponent lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time during the component lifecycle. </p>
+Component lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time during the component lifecycle.
 
 ### Component lifecycle methods
 * componentDidMount(): when a component rendered to DOM for the first time; it is recommended to initialize data than constructor 
@@ -27,8 +27,8 @@ import Loader from './loader'
 class App extends React.Component {
 
     // Any constructor is not required!
-
-    state = { lat: null, errorMessage: '' }; // Babel will put this line into Constructor anyways
+    // Babel will put this line into Constructor anyways
+    state = { lat: null, errorMessage: '' }; 
 
     // Lifecycle method
     componentDidMount() {

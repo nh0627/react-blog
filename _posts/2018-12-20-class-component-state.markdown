@@ -6,8 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react
 ---
-
-<p class="intro"><span class="dropcap">A</span> component can be functional or a class-based. Functional components are good enough to display simple content, but class components can be good for more than a simple feature with any complex logic. There is a concept of "state" in React also; State lets components to update their output data as responding immediately to a user's action(asynchronously).</p>
+A component can be functional or a class-based. Functional components are good enough to display simple content, but class components can be good for more than a simple feature with any complex logic. There is a concept of "state" in React also; State lets components to update their output data as responding immediately to a user's action(asynchronously).
 
 ### Rules of Class Components
 * Must be a JavaScript class

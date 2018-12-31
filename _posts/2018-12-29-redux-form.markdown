@@ -6,7 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react redux react-redux
 ---
-<p class="intro"><span class="dropcap">R</span>edux Form can be helpful for us to store form data inside of our Redux store. Here is how it handels form data and how we can implement it into our app. The displayed code below is from [the stream video app][app-doc], you can check the project's document and repo in the link.</p>
+Redux Form can be helpful for us to store form data inside of our Redux store. Here is how it handels form data and how we can implement it into our app. The displayed code below is from [the stream video app][app-doc], you can check the project's document and repo in the link.
 
 #### Command to install Redux Form
 npm install --save redux-form

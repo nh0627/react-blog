@@ -7,7 +7,7 @@ categories: udemy-react
 tags: react
 ---
 
-<p class="intro"><span class="dropcap">R</span>eact component can split the whole UI of an application into separated and independent pieces, and these pieces can communicate with props(properties).</p>
+React component can split the whole UI of an application into separated and independent pieces, and these pieces can communicate with props(properties).
 
 ### React Component
 * Component Nesting: components can be nested in a parent component
@@ -49,7 +49,6 @@ const App = () => {
 };
 
 ReactDOM.render(<App />, document.querySelector('#root'))
-
 {% endhighlight %}
 
 {% highlight javascript  %}

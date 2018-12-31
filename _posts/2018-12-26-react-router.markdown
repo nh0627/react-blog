@@ -6,8 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react react-router
 ---
-<p class="intro"><span class="dropcap">R</span>act Router can let a user navigate to another page with different URLs in our app. However, unlike the traditional way of handling this, we should not use the traditional anchor tag to link somewhere. Because it will return a new HTML document so we will loose all data in memory and access to any API. We'd better use Link tag in this case as below code to keep a browser from dumping all our react and JavaScript data.
-</p>
+Ract Router can let a user navigate to another page with different URLs in our app. However, unlike the traditional way of handling this, we should not use the traditional anchor tag to link somewhere. Because it will return a new HTML document so we will lose all data in memory and access to any API. We'd better use Link tag in this case as below code to keep a browser from dumping all our react and JavaScript data.
 
 #### Command to install navigation for dom-based apps
 npm install --save react-router-dom

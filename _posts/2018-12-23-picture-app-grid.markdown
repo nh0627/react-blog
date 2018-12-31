@@ -6,7 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react
 ---
-<p class="intro"><span class="dropcap">I</span>n the previous post, I made an app listing pictures according to user's keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images.</p>
+In the previous post, I made an app listing pictures according to user's keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images.
 
 #### Before
 <img src="{{ '/assets/img/2018-12-22-picture-1.png' }}" alt="picture"> 

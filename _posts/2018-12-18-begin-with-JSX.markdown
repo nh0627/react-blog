@@ -7,8 +7,8 @@ categories: udemy-react
 tags: react
 ---
 
-<p class="intro"><span class="dropcap">E</span>S2015 or 2016 JS is not guaranteed to be fully supported by a user's browser. In order to use it normally, we need use Babel which takes ES2015 or 2016 and converts them into ES5 Javascript code. 
-"React seperate concern with loosely coupled units called "components" (not in seperate files) that contain markup and logic(from [React Doc][react-doc-jsx]"). To do so, JSX can be useful to put UI and JavaScript code together. However, like ES2015 or 2016, a browser cannot understand natively JSX, so it needs to be converted to normal javascript code for a browser to render it with Babel.</p>
+ES2015 or 2016 JS is not guaranteed to be fully supported by a user's browser. In order to use it normally, we need use Babel which takes ES2015 or 2016 and converts them into ES5 Javascript code. 
+"React seperate concern with loosely coupled units called "components" (not in seperate files) that contain markup and logic(from [React Doc][react-doc-jsx]"). To do so, JSX can be useful to put UI and JavaScript code together. However, like ES2015 or 2016, a browser cannot understand natively JSX, so it needs to be converted to normal javascript code for a browser to render it with Babel.
 
 These two are the same, but different syntax:
 
@@ -39,7 +39,7 @@ Custom styling with JSX:
 {% endhighlight %}
 
 Different element attributes:
-{% highlight javascript  %}
+{% highlight html  %}
 // HTML 
 <label class="label" for="name">Name:</label>
 

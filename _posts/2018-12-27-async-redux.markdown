@@ -6,8 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react redux react-redux redux-thunk
 ---
-<p class="intro"><span class="dropcap">A</span> middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!
-</p>
+A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!
 
 #### General Data Loading with Redux
 1. Component gets rendered onto the screen

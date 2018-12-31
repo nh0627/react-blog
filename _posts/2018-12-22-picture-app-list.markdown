@@ -6,7 +6,7 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react
 ---
-<p class="intro"><span class="dropcap">E</span>vent handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practice this points, I have implemented an application listing pictures according to user's keyword to deal with how to use Input form and make Ajax call to API in React.</p>
+Event handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practice this points, I have implemented an application listing pictures according to user's keyword to deal with how to use Input form and make Ajax call to API in React.
 
 ### Returning false
 To prevent default behavior, we cannot return 'false' like a normal HTML code. Rather, we have to call preventDefault:
