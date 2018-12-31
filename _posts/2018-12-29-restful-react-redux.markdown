@@ -6,14 +6,16 @@ author: Nahyeon Lee
 categories: udemy-react
 tags: react redux react-redux restful
 ---
-<p class="intro"><span class="dropcap">R</span>ESTful convention refers to a standard system of routes and request methods used to commit or operate actions. It is highly recommended to make a network request to our API server and also cooperate with other engineers. I made a simple example of how to implement the RESTful convention into our React-redux app as below action creators and reducers. The displayed code below is from <a href="https://nh0627.github.io/blog/stream-app/">the stream video app</a>, you can check the project's document and repo in the link.</p>
+RESTful convention refers to a standard system of routes and request methods used to commit or operate actions. It is highly recommended to make a network request to our API server and also cooperate with other engineers. I made a simple example of how to implement the RESTful convention into our React-redux app as below action creators and reducers. The displayed code below is from [the stream video app][app-doc], you can check the project's document and repo in the link.
 
 ### Restful Convention
-<img src="{{ '/assets/img/2018-12-29-restful.png' }}" alt="structure" style="display: block; width: 600px;">
+<img src="{{ '/assets/img/2018-12-29-restful.png' }}" alt="structure">
 
-#### Action Creators to send AJAX request in RESTful Convention
+### Example codes in RESTful Convention
+
+#### Action Creators to send AJAX request 
+`/src/actions/index.js`
 {% highlight javascript  %}
-// /src/actions/index.js
 import streams from '../apis/axios/streams';
 
 export const createStream = formValues => async dispatch => {
@@ -32,8 +34,10 @@ export const fetchStream = id => async dispatch => {
 };
 
 export const editStream = (id, formValues) => async dispatch => {
-    // const response = await streams.put(`streams/${id}`, formValues); Update all properties of record
-    const response = await streams.patch(`streams/${id}`, formValues); // Update some properties of record that needs to be updated
+    // put(): Update all properties of record 
+    // const response = await streams.put(`streams/${id}`, formValues) 
+    // patch(): Update some properties of record that needs to be updated
+    const response = await streams.patch(`streams/${id}`, formValues);
     dispatch({type: 'EDIT_STREAM', payload: response.data });
 }
 
@@ -44,8 +48,8 @@ export const deleteStream = id => async dispatch => {
 {% endhighlight %}
 
 #### Reducers to take the actions
+`/src/reducers/streamReducer.js`
 {% highlight javascript  %}
-// /src/reducers/streamReducer.js
 import _ from 'lodash';
 
 // Key interpolation syntax
@@ -77,9 +81,8 @@ export default (state={}, action) => {
 #### Project Doc & Repo
 [Doc][app-doc] / [Repo][app-repo]
 
-The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
+The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [app-doc]: https://nh0627.github.io/blog/stream-app/
 [app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/16.streams
 [udemy-react]: https://www.udemy.com/react-redux/
-[react-doc]: https://reactjs.org/docs/getting-started.html
