@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "React App Practice - Youtube Browser APP"
+title:  "React App Practice01 - Youtube Browser APP"
 date:   2018-12-24
 author: Nahyeon Lee
 categories: udemy-react
-tags: react
+tags: react app-practice
 ---
 
 ### App features
@@ -12,10 +12,10 @@ tags: react
 * When a user click on a video, it will be appeared on the screen with a title and a description
 
 ### App concept
-<img src="{{ '/assets/img/2018-12-24-concept.png' }}" alt="concept" style="display: block; width: 700px;">
+<img src="{{ '/assets/img/2018-12-24-concept.png' }}" alt="concept">
 
 ### Output
-<img src="{{ '/assets/img/2018-12-24-result.png' }}" alt="result" style="display: block; width: 700px;">
+<img src="{{ '/assets/img/2018-12-24-result.png' }}" alt="result">
 
 #### App Repo
 [Here][app-repo]

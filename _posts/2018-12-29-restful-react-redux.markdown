@@ -14,8 +14,8 @@ RESTful convention refers to a standard system of routes and request methods use
 ### Example codes in RESTful Convention
 
 #### Action Creators to send AJAX request 
-`/src/actions/index.js`
 {% highlight javascript  %}
+// /src/actions/index.js
 import streams from '../apis/axios/streams';
 
 export const createStream = formValues => async dispatch => {
@@ -48,8 +48,8 @@ export const deleteStream = id => async dispatch => {
 {% endhighlight %}
 
 #### Reducers to take the actions
-`/src/reducers/streamReducer.js`
 {% highlight javascript  %}
+// /src/reducers/streamReducer.js
 import _ from 'lodash';
 
 // Key interpolation syntax

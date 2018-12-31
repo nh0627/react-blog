@@ -82,7 +82,7 @@ export default CommentDetail;
 {% endhighlight %}
 
 Output:
-<img src="{{ '/assets/img/2018-12-18-comments.png' }}" alt="comments" style="display: block;"> 
+<img src="{{ '/assets/img/2018-12-18-comments.png' }}" alt="comments"> 
 
 The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
 

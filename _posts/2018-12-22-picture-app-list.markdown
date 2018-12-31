@@ -164,7 +164,7 @@ export default ImageList;
 {% endhighlight %}
 
 Output:
-<img src="{{ '/assets/img/2018-12-22-picture-1.png' }}" alt="picture" style="display: block; width: 700px;"> 
+<img src="{{ '/assets/img/2018-12-22-picture-1.png' }}" alt="picture"> 
 
 The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
 

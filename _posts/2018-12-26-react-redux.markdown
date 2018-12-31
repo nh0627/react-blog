@@ -13,7 +13,7 @@ tags: react redux react-redux
 npm install --save redux react-redux
 
 #### How React-Redux works?
-<img src="{{ '/assets/img/2018-12-26-react-redux-structure.png' }}" alt="structure" style="display: block; width: 600px;">
+<img src="{{ '/assets/img/2018-12-26-react-redux-structure.png' }}" alt="structure">
 * To use react-redux, we need to create two new components: Provider and Connect
 * The Provider is rendered at the very top of app and has eternal reference to Redux store. The term Provider essentially means it is providing information to all of the different components inside of our app. 
 
@@ -83,8 +83,7 @@ export default connect(mapStateToProps, { selectSong })(SongList);
 #### Repo for the full example codes
 [Here][app-repo]
 
-The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
+The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/13.songs
 [udemy-react]: https://www.udemy.com/react-redux/
-[react-doc]: https://reactjs.org/docs/getting-started.html

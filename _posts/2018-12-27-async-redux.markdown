@@ -56,8 +56,7 @@ export const fetchPosts = () =>
 #### App Repo
 [Here][app-repo]
 
-The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
+The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/14.blog
 [udemy-react]: https://www.udemy.com/react-redux/
-[react-doc]: https://reactjs.org/docs/getting-started.html

@@ -18,8 +18,8 @@ ReactDOM.createPortal(child, container)
 {% endhighlight %}
 
 #### Example modal code
-`// Modal.js`
 {% highlight javascript  %}
+// Modal.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -49,4 +49,4 @@ export default Modal;
 The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
 
 [udemy-react]: https://www.udemy.com/react-redux/
-[react-doc]: https://reactjs.org/docs/portals.html
+[react-doc]: https://reactjs.org/docs/getting-started.html

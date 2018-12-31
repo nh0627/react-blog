@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "React-Redux07 - Video Stream App"
+title:  "React App Practice02 - Video Stream App"
 date:   2019-01-01
 author: Nahyeon Lee
 categories: udemy-react
-tags: react redux react-redux
+tags: react redux react-redux app-practice
 ---
-This post is a document about the video stream app that I made through [course][udemy-react].
+This post is a document about the video stream app that I made through [Modern React with Redux][udemy-react].
 
 ### App Features
 * Navigator with routing

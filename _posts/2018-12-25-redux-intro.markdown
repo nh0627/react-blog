@@ -30,8 +30,7 @@ A state property is a central repository of all information that has been create
 #### Example code
 [https://codepen.io/nh0627/pen/VqboVy?editors=0010][redux-code]
 
-The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
+The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [redux-code]: https://codepen.io/nh0627/pen/VqboVy?editors=0010
 [udemy-react]: https://www.udemy.com/react-redux/
-[react-doc]: https://reactjs.org/docs/getting-started.html

@@ -12,7 +12,7 @@ tags: react redux react-redux
 npm install --save redux-form
 
 #### How Redux Form works?
-<img src="{{ '/assets/img/2018-12-29-redux-form.png' }}" alt="structure" style="display: block; width: 600px;">
+<img src="{{ '/assets/img/2018-12-29-redux-form.png' }}" alt="structure">
 * Form data exists in a redux store and will be maintained by a reducer.
 * mapStateToProps takes form data from a redux store and get it into components as props.
 * Prop objects and all the values inside will be passed into input elements as values.
@@ -109,10 +109,9 @@ export default reduxForm({
 #### Project Doc & Repo
 [Doc][app-doc] / [Repo][app-repo]
 
-The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
+The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [app-doc]: https://nh0627.github.io/blog/stream-app/
 [app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/16.streams
 [debugging]: https://github.com/zalmoxisus/redux-devtools-extension
 [udemy-react]: https://www.udemy.com/react-redux/
-[react-doc]: https://reactjs.org/docs/getting-started.html

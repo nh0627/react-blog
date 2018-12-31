@@ -168,8 +168,8 @@ export default Loader;
 
 
 Output:
-<img src="{{ '/assets/img/2018-12-21-season-1.png' }}" alt="season" style="display: block; width: 500px;">
-<img src="{{ '/assets/img/2018-12-21-season-2.png' }}" alt="season" style="display: block; width: 500px;"> 
+<img src="{{ '/assets/img/2018-12-21-season-1.png' }}" alt="season">
+<img src="{{ '/assets/img/2018-12-21-season-2.png' }}" alt="season"> 
 
 The source of this post and code is from [Modern React with Redux][udemy-react], also from [React Doc][react-doc].
 
