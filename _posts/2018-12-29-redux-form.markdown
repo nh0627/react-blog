@@ -33,7 +33,6 @@ export default combineReducers({
 {% endhighlight %}
 
 {% highlight javascript  %}
-// /src/components/streams/StreamCreate.js -> One of our components!
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
@@ -106,7 +105,7 @@ export default reduxForm({
 })(StreamForm);
 {% endhighlight %}
 
-#### Project Doc & Repo
+#### Full Project Doc & Repo
 [Doc][app-doc] / [Repo][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react].

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "React-Redux05 - RESTful Convention with React-Redux"
+title:  "React-Redux05 - RESTful with React-Redux"
 date:   2018-12-29
 author: Nahyeon Lee
 categories: udemy-react
@@ -78,7 +78,7 @@ export default (state={}, action) => {
 };
 {% endhighlight %}
 
-#### Project Doc & Repo
+#### Full Project Doc & Repo
 [Doc][app-doc] / [Repo][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react].
