@@ -9,8 +9,8 @@ exclude:
   - "/vendor/"
 
 # Site settings
-title: Coding Log - Nahyeon Lee
-subtitle: "My coding log to record learning in web-dev."
+title: Nahyeon Lee
+subtitle: Full-stack Developer
 email: naboee0627@gmail.com
 name: Nahyeon Lee
 description: >

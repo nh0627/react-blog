@@ -84,5 +84,5 @@ export default (state={}, action) => {
 The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [app-doc]: https://nh0627.github.io/blog/stream-app/
-[app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/16.streams
+[app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/16.steams-with-streaming
 [udemy-react]: https://www.udemy.com/react-redux/

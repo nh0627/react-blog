@@ -42,5 +42,5 @@ The source of this post and code is from [Modern React with Redux][udemy-react].
 
 [OBS]: https://obsproject.com/
 [NMS]: https://github.com/illuspas/Node-Media-Server
-
+[app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/16.steams-with-streaming
 [udemy-react]: https://www.udemy.com/react-redux/
