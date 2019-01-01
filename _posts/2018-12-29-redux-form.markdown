@@ -8,10 +8,10 @@ tags: react redux react-redux
 ---
 Redux Form can be helpful for us to store form data inside of our Redux store. Here is how it handels form data and how we can implement it into our app. The displayed code below is from [the stream video app][app-doc], you can check the project's document and repo in the link.
 
-#### Command to install Redux Form
+### Command to install Redux Form
 npm install --save redux-form
 
-#### How Redux Form works?
+### How Redux Form works?
 <img src="{{ '/assets/img/2018-12-29-redux-form.png' }}" alt="structure">
 * Form data exists in a redux store and will be maintained by a reducer.
 * mapStateToProps takes form data from a redux store and get it into components as props.
@@ -19,7 +19,7 @@ npm install --save redux-form
 * When a user make changes input elements, a callback handler in our component will be invoked.
 * It goes to an action creator that can update form data in a redux store.
 
-#### Adding Redux Form into our app
+### Adding Redux Form into our app
 {% highlight javascript  %}
 // /src/reducers/index.js
 import { combineReducers} from 'redux';
@@ -105,7 +105,7 @@ export default reduxForm({
 })(StreamForm);
 {% endhighlight %}
 
-#### Full Project Doc & Repo
+### Full Project Doc & Repo
 [Doc][app-doc] / [Repo][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react].

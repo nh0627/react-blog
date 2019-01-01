@@ -8,10 +8,10 @@ tags: react
 ---
 In the previous post, I made an app listing pictures according to user's keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images.
 
-#### Before
+### Before
 <img src="{{ '/assets/img/2018-12-22-picture-1.png' }}" alt="picture"> 
 
-#### Now
+### Now
 <img src="{{ '/assets/img/2018-12-23-picture-2.png' }}" alt="picture"> 
 
 To do so, ImageCard component needs to be made to put each picture into grid in the order below:

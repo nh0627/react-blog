@@ -8,7 +8,7 @@ tags: react redux react-redux redux-thunk
 ---
 A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!
 
-#### General Data Loading with Redux
+### General Data Loading with Redux
 1. Component gets rendered onto the screen
 2. Component's 'componentDidMount' lifecycle method get called
 3. We call Action Creator automatically from 'componentDidMount'
@@ -36,7 +36,7 @@ export const fetchPosts = async () => {
 };
 {% endhighlight %}
 
-#### Rules with Redux Thunk
+### Rules with Redux Thunk
 In the normal rules of Action Creator in Redux, "it must return action objects". However, with Redux Thunk, Action Creator can return action objects or functions. In the case that a function is returned, Redux Thunk is going to automatically call the function with dispatch and getState function. Once we get a response eventually, we can manually dispatch an action with the response at some point in time in the future.
 
 The code above can be fixed like this with React Thunk:
@@ -52,7 +52,7 @@ export const fetchPosts = () =>
     };
 {% endhighlight %}
 
-#### App Repo
+### App Repo
 [Here][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react].

@@ -78,7 +78,7 @@ export default (state={}, action) => {
 };
 {% endhighlight %}
 
-#### Full Project Doc & Repo
+### Full Project Doc & Repo
 [Doc][app-doc] / [Repo][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react].

@@ -8,10 +8,10 @@ tags: react redux react-redux
 ---
 The Redux library is not only designed to work with React. Thus, we have to note that after installing React and Redux, and we need a third party library, React-Redux, which can let us use integrate React with Redux.
 
-#### Command to install Redux and Redux-React into React project
+### Command to install Redux and Redux-React into React project
 npm install --save redux react-redux
 
-#### How React-Redux works?
+### How React-Redux works?
 <img src="{{ '/assets/img/2018-12-26-react-redux-structure.png' }}" alt="structure">
 * To use react-redux, we need to create two new components: Provider and Connect
 * The Provider is rendered at the very top of app and has eternal reference to Redux store. The term Provider essentially means it is providing information to all of the different components inside of our app. 
@@ -79,7 +79,7 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { selectSong })(SongList);
 {% endhighlight %}
 
-#### Repo for the full example codes
+### Repo for the full example codes
 [Here][app-repo]
 
 The source of this post and code is from [Modern React with Redux][udemy-react].

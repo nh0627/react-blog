@@ -20,7 +20,7 @@ A component can be functional or a class-based. Functional components are good e
 * State must be initialized when a component is first created (a constructor can be helpful)
 * State can <em>only</em> be updated using the function 'setState'
 
-#### Detecting user's geolocation with React State
+### Detecting user's geolocation with React State
 {% highlight javascript  %}
 // index.js
 import React from 'react';

@@ -8,7 +8,7 @@ tags: react
 ---
 A React app usually has one App component as the root/top one. Then it can contain children components that we can reuse as many as we want into a parent component and configure/customize them with props as below.
 
-#### Add components over components
+### Add components over components
 {% highlight javascript  %}
 // index.js
 import React from 'react';
