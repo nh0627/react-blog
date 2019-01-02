@@ -1,0 +1,53 @@
+<div class="home">
+    {% if site.theme_settings.header_text %}
+    <div id="main" class="call-out" style="background-image: url('{{ site.theme_settings.header_portfolio_feature_image | relative_url }}')">
+        <h1> {{ site.theme_settings.header_text }} </h1>
+        <h2 class="subtitle">{{ page.subtitle }}</h2>
+    </div>
+    {% endif %}
+
+    <div class="posts">
+        {% for item in site.portfolio %}
+        <div class="post-teaser">
+            {% if item.feature-img %}
+            <div class="post-img">
+                <img alt="{{ item.title }}" src="{{ item.img | relative_url }}">
+            </div>
+            {% endif %}
+            <span>
+                <header>
+                    <h1>
+                        <a alt="{{ item.title }}" class="post-link" href="{{ item.url | relative_url }}">
+                            {{ item.title }}
+                        </a>
+                    </h1>
+                    <p class="meta">
+                        {{ item.date | date: "%B %-d, %Y" }}
+                    </p>
+                </header>
+                <div class="excerpt">
+                    {{ item.excerpt | strip_html | escape }}
+                </div>
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- Portfolio Grid Section -->
+
+<!-- <div class="portfolio-grid">
+    {% for item in site.portfolio %}
+    <div class="portfolio-cell">
+        <a href="{{ item.url | relative_url }}" class="portfolio-link" data-keyboard="true">
+            <div class="caption" title="{{ item.title }}">
+                <div class="caption-content">
+                    <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img src="{{ item.img | relative_url }}" class="" alt="">
+        </a>
+    </div>
+    {% endfor %}
+</div> -->

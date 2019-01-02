@@ -1,7 +1,4 @@
-source 'https://rubygems.org'
-gem 'jekyll'
-gem 'jekyll-archives'
-gem 'jekyll-sitemap'
-gem 'jekyll-paginate'
+source "https://rubygems.org"
+gemspec
 
 gem 'wdm', '~> 0.1.0'
