@@ -1,0 +1,24 @@
+.inner-content {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.intro-myself {
+    padding-top: 10%;
+    padding-bottom: 5%;
+    background-image: url(/assets/img/headers/header1.jpg);
+}
+
+.skill{
+    margin-left: 0;
+
+    .skill-item {
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 100px;
+        border: solid 1px rgba(85, 88, 91, 0);
+        font-size: 16px;
+        margin: 0 8px 14px 0;
+        background-color: rgba(85, 88, 91, 0.2);
+    }
+}

@@ -5,6 +5,7 @@
     display: inline-block;
     float: left;
     width: 100%;
+    border-top: 3px solid $theme-color;
 
     .separator {
         user-select: none;
@@ -34,7 +35,7 @@
         float: left;
         font-weight: bold;
         font-size: 1em;
-        line-height: 1.5;
+        line-height: 1.8;
     }
 
     nav {

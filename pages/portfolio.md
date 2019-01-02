@@ -2,8 +2,8 @@
 layout: default
 title : Portfolio 
 permalink: /portfolio/
-subtitle: "Projects I am working on" 
-feature-img: "assets/img/headers/header4.jpg"
+subtitle: "Some of my projects I worked on before." 
+feature-img: "assets/img/headers/header1.jpg"
 tags: [Archive]
 ---
 

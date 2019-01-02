@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div class="home">
+  {% if site.theme_settings.header_text %}
+  <div class="call-out" style="background-image: url('{{ site.theme_settings.header_feature_image | relative_url }}')">
+    <h2 class="subtitle highlight-grey"> <span>Note takings, thinkings, or anything</span><br><span>from my daily coding life.</span></h2>
+  </div>
+  {% endif %}
+
+  {% include blog.html %}
+    
+</div>

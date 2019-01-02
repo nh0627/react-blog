@@ -1,11 +1,18 @@
 h1.title {
-    @extend .header-txt-shadow;
+    // @extend .header-txt-shadow;
+    background-color: rgba(250, 114, 104, 0.2);
+    opacity: 1;
+    display: inline;
+    padding: 0.2rem;
+    box-decoration-break: clone;
 }
 
 .subtitle {
     font-weight: normal;
     margin-top: 5px;
-    text-shadow: 1px 1px 2px $text-shadow;
+    margin-bottom: 5px;
+    text-shadow: initial !important;
+    color: #fff;
 }
 
 //Shared css in _post.scss

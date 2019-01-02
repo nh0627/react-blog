@@ -1,8 +1,8 @@
 <div class="home">
     {% if site.theme_settings.header_text %}
-    <div id="main" class="call-out" style="background-image: url('{{ site.theme_settings.header_portfolio_feature_image | relative_url }}')">
-        <h1> {{ site.theme_settings.header_text }} </h1>
-        <h2 class="subtitle">{{ page.subtitle }}</h2>
+    <div class="call-out" style="background-image: url('{{ site.theme_settings.header_feature_image | relative_url }}')">
+        <!-- <h1> {{ site.theme_settings.header_text }} </h1> -->
+        <h2 class="subtitle highlight-grey"><span>{{ page.subtitle }}</span></h2>
     </div>
     {% endif %}
 
@@ -35,6 +35,7 @@
 
 </div>
 
+<!-- 기존 테마 -->
 <!-- Portfolio Grid Section -->
 
 <!-- <div class="portfolio-grid">

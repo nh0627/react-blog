@@ -40,9 +40,9 @@
     }
 }
 
-#main {
-    background-position: 100% 0, 0 center, center top;
-}
+// #main {
+//     background-position: 100% 0, 0 center, center top;
+// }
 
 // Post listing
 .posts {
@@ -78,19 +78,19 @@
         .post-img img {
             //max-width: 100%;
 
-            -moz-transition-timing-function: ease-out;
-            -webkit-transition-timing-function: ease-out;
-            transition-timing-function: ease-out;
+            // -moz-transition-timing-function: ease-out;
+            // -webkit-transition-timing-function: ease-out;
+            // transition-timing-function: ease-out;
 
-            -moz-transition: all 2s;
-            -webkit-transition: all 2s;
-            transition: all 2s;
+            // -moz-transition: all 2s;
+            // -webkit-transition: all 2s;
+            // transition: all 2s;
 
-            &:hover {
-                -moz-transform: scale(1.1);
-                -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-            }
+            // &:hover {
+            //     -moz-transform: scale(1.1);
+            //     -webkit-transform: scale(1.1);
+            //     transform: scale(1.1);
+            // }
         }
     }
     .excerpt {
@@ -113,4 +113,23 @@
         }
     }
 
+}
+
+// highlight effect
+.highlight {
+    line-height: 1.4;
+}
+.highlight-pink span { 
+    background-color: rgba(250, 114, 104, 0.5);
+    opacity: 1;
+    display: inline;
+    padding: 0.45rem;
+    box-decoration-break: clone;
+}
+.highlight-grey span { 
+    background-color: rgba(83, 83, 83, 0.2);
+    opacity: 1;
+    display: inline;
+    padding: 0.45rem;
+    box-decoration-break: clone;
 }
