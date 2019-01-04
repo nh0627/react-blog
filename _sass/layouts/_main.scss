@@ -12,6 +12,9 @@
     .intro {
         padding-top: 8em;
         padding-bottom: 4em;
+        h1 {
+            line-height: 1.4;
+        }
     }
 
     .profile-img {
@@ -28,6 +31,9 @@
     .description {
         padding-top: 1.8em;
         padding-bottom: 1em;
+        p {
+            line-height: 1.8;
+        }
     }
     .skill {
         padding-bottom: 3em;
@@ -71,9 +77,26 @@
         }
     }
 }
+@media (max-width: 845px) {
+    .main {
+        .skill {
+            .skill-list {
+
+                .skill-item {
+                    font-size: 0.7em;
+                }
+            }
+        }
+    }
+}
 
 @media (max-width: 576px) {
     .main {
+        .intro {
+            h1 {
+                font-size: 1.5em;
+            }
+        }
         .inner-content {
             padding-left: $padding-small;
             padding-right: $padding-small;
