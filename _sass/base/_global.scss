@@ -82,8 +82,7 @@ h4 {
         font-size: 0.9em;
     }
     p,
-    li,
-    a {
+    li{
         font-size: 0.8em;
     }
 }
@@ -178,11 +177,13 @@ li {
         margin-bottom: 0;
         margin-left: 1em;
     }
+
 }
 
 ol,
 ul {
-    list-style-position: outside;
+    // list-style-position: outside;
+    list-style: none;
     margin-left: 1em;
 }
 

@@ -35,6 +35,9 @@
             line-height: 1.8;
             font-size: 1.1em;
         }
+        a:hover {
+            text-decoration: underline
+        }
     }
     .skill {
         padding-bottom: 3em;
@@ -74,6 +77,15 @@
             .inner-content {
                 margin-left: 7.5%;
                 margin-right: 7.5%;
+            }
+        }
+    }
+}
+@media screen and (max-width: $break) {
+    .main {
+        .description {
+            p {
+                font-size: 0.8em;
             }
         }
     }
