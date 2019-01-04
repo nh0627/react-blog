@@ -195,7 +195,11 @@ hr {
 
 a {
     color: $link-color;
+    transition: all 150ms;
     text-decoration: none;
+    &:hover {
+        color: darken($theme-color, 10%);
+    }
 }
 
 iframe,

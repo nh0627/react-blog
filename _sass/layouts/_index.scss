@@ -24,16 +24,16 @@
     }
     
     //For white images
-    p,
-    a,
-    li,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        @extend .header-txt-shadow;
-    }
+    // p,
+    // a,
+    // li,
+    // h1,
+    // h2,
+    // h3,
+    // h4,
+    // h5 {
+    //     @extend .header-txt-shadow;
+    // }
 
     p:last-child {
         margin-bottom: 0;
@@ -113,23 +113,4 @@
         }
     }
 
-}
-
-// highlight effect
-.highlight {
-    line-height: 1.4;
-}
-.highlight-pink span { 
-    background-color: rgba(250, 114, 104, 0.5);
-    opacity: 1;
-    display: inline;
-    padding: 0.45rem;
-    box-decoration-break: clone;
-}
-.highlight-grey span { 
-    background-color: rgba(83, 83, 83, 0.2);
-    opacity: 1;
-    display: inline;
-    padding: 0.45rem;
-    box-decoration-break: clone;
 }

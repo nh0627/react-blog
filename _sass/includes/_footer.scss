@@ -5,17 +5,14 @@
     width: 100%;
     color: lighten($text-color, 24%);
     font-size: 0.9em;
-    border-top: 1px solid rgba(0,0,0,0.1);
-
+   
     .footer-icons {
         ul {
             list-style: none;
             li {
                 display: inline;
             }
-            a:hover {
-                color: darken($link-color, 15%);
-            }
+
         }
     }
 }
