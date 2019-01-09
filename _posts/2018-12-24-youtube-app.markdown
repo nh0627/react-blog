@@ -12,10 +12,10 @@ tags: react app-practice
 * When a user click on a video, it will be appeared on the screen with a title and a description
 
 ### Concept
-<img src="{{ '/assets/img/2018-12-24-concept.png' }}" alt="concept">
+<img src="{{ '/assets/img/posts/2018-12-24-concept.png' }}" alt="concept">
 
 ### Output
-<img src="{{ '/assets/img/2018-12-24-result.png' }}" alt="result">
+<img src="{{ '/assets/img/posts/2018-12-24-result.png' }}" alt="result">
 
 ### Repository
 [Here][app-repo]

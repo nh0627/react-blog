@@ -27,7 +27,7 @@ export default(state, action) => {
 }
 {% endhighlight %}
 * Must not mutate its input 'state' argument; We are not going to mutate state ever! However, When we work on a reducer that is returning an array or an object, we might want to change an element/property in the returned array/object. In that case, we can use the syntax below which also makes sure we are not mutating any state argument, because it creates a new array or object:
-<img src="{{ '/assets/img/2018-12-28-no-mutate.png' }}" alt="mutate">
+<img src="{{ '/assets/img/posts/2018-12-28-no-mutate.png' }}" alt="mutate">
 
 The source of this post and code is from [Modern React with Redux][udemy-react].
 

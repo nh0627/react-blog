@@ -12,7 +12,7 @@ Redux Form can be helpful for us to store form data inside of our Redux store. H
 npm install --save redux-form
 
 ### How Redux Form works?
-<img src="{{ '/assets/img/2018-12-29-redux-form.png' }}" alt="structure">
+<img src="{{ '/assets/img/posts/2018-12-29-redux-form.png' }}" alt="structure">
 * Form data exists in a redux store and will be maintained by a reducer.
 * mapStateToProps takes form data from a redux store and get it into components as props.
 * Prop objects and all the values inside will be passed into input elements as values.

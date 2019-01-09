@@ -30,7 +30,14 @@
 
     .description {
         padding-top: 1.8em;
-        padding-bottom: 1em;
+        padding-bottom: 3em;
+        // padding-bottom: 1em;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        h3 {
+            color: rgba(56,56,56,0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
         p {
             line-height: 1.8;
             font-size: 1.1em;
@@ -41,13 +48,15 @@
     }
     .skill {
         padding-bottom: 3em;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        h4 {
+            font-weight: 400;
+        }
         .skill-list {
             margin-left: 0;
             .skill-item {
                 display: inline-block;
                 padding: 0.4em 0.8em;
-                border-radius: 100px;
+                // border-radius: 100px;
                 border: solid 1px rgba(85, 88, 91, 0);
                 font-size: 0.9em;
                 margin: 0 8px 14px 0;

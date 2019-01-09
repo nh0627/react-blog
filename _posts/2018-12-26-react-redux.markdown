@@ -12,7 +12,7 @@ The Redux library is not only designed to work with React. Thus, we have to note
 npm install --save redux react-redux
 
 ### How React-Redux works?
-<img src="{{ '/assets/img/2018-12-26-react-redux-structure.png' }}" alt="structure">
+<img src="{{ '/assets/img/posts/2018-12-26-react-redux-structure.png' }}" alt="structure">
 * To use react-redux, we need to create two new components: Provider and Connect
 * The Provider is rendered at the very top of app and has eternal reference to Redux store. The term Provider essentially means it is providing information to all of the different components inside of our app. 
 

@@ -9,7 +9,7 @@ tags: react redux react-redux restful
 RESTful convention refers to a standard system of routes and request methods used to commit or operate actions. It is highly recommended to make a network request to our API server and also cooperate with other engineers. I made a simple example of how to implement the RESTful convention into our React-redux app as below action creators and reducers. The displayed code below is from [the stream video app][app-doc], you can check the project's document and repo in the link.
 
 ### Restful Convention
-<img src="{{ '/assets/img/2018-12-29-restful.png' }}" alt="structure">
+<img src="{{ '/assets/img/posts/2018-12-29-restful.png' }}" alt="structure">
 
 ### Example codes in RESTful Convention
 
