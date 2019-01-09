@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React-Redux00 - Intro to Redux | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React-Redux00 - Intro to Redux" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Redux is a state management library. The goal of React is rendering content and handling user interaction rather than handling data. For handling data, we can make Redux keep/handle states of our app in/from a single store. By doing so, we can create an advanced application easier with Redux than using React alone." />
+<meta property="og:description" content="Redux is a state management library. The goal of React is rendering content and handling user interaction rather than handling data. For handling data, we can make Redux keep/handle states of our app in/from a single store. By doing so, we can create an advanced application easier with Redux than using React alone." />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-25T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"Redux is a state management library. The goal of React is rendering content and handling user interaction rather than handling data. For handling data, we can make Redux keep/handle states of our app in/from a single store. By doing so, we can create an advanced application easier with Redux than using React alone.","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html","headline":"React-Redux00 - Intro to Redux","dateModified":"2018-12-25T00:00:00+09:00","datePublished":"2018-12-25T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React-Redux00 - Intro to Redux | Nahyeon Lee</title>
+    <meta name="description" content="Redux is a state management library. The goal of React is rendering content and handling user interaction rather than handling data. For handling data, we ca...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React-Redux00+-+Intro+to+Redux" class="">React-Redux00 - Intro to Redux</h1>
+      <p class="meta">
+      December 25, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>Redux is a state management library. The goal of React is rendering content and handling user interaction rather than handling data. For handling data, we can make Redux keep/handle states of our app in/from a single store. By doing so, we can create an advanced application easier with Redux than using React alone.</p>
+
+<h3 id="redux-cycle">Redux Cycle</h3>
+<p>Action Creator 🡒 Action 🡒 dispatch 🡒 Reducers 🡒 State</p>
+
+<h4 id="action-creator">Action Creator</h4>
+<p>The action creator is a function that creates or returns a plain JavaScript object. We call it to change state of our app.</p>
+
+<h4 id="action">Action</h4>
+<p>The action is the plain JavaScript object produced by action creator and has a type(of change we want to make) and payload(context around the change) property. The purpose of an action is to describe some changes that we want to make to the data inside of our app.</p>
+
+<h4 id="dispatch">dispatch</h4>
+<p>The dispatch function is going to take in action; making copies of the object and forward them to places inside of our app.</p>
+
+<h4 id="reducer">Reducer</h4>
+<p>The reducer is a function taking in an action. It is going to process an action and then make some changes to data(state) and return it, so that it can be centralized in other location.</p>
+
+<h4 id="state">State</h4>
+<p>A state property is a central repository of all information that has been created by reducers. It waits until we need to update it again.</p>
+
+<h3 id="example-code">Example code</h3>
+<p><a href="https://codepen.io/nh0627/pen/VqboVy?editors=0010">https://codepen.io/nh0627/pen/VqboVy?editors=0010</a></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html&text=React-Redux00+-+Intro+to+Redux%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html&title=React-Redux00+-+Intro+to+Redux%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React-Redux00+-+Intro+to+Redux%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/25/redux-intro.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tag</div>
+    
+
+    
+    <a class="button" href="/tags#redux">
+      <p><i class="fa fa-tag fa-fw"></i> redux</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React App Practice01 - Youtube Browser APP" href="/udemy-react/2018/12/24/youtube-app.html">
+        React App Practice01 - Youtube Browser APP
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React-Redux01 - React with Redux" href="/udemy-react/2018/12/26/react-redux.html">
+        React-Redux01 - React with Redux
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

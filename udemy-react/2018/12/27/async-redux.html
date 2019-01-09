@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React-Redux02 - Async with Redux Thunk | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React-Redux02 - Async with Redux Thunk" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!" />
+<meta property="og:description" content="A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!" />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-27T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html","headline":"React-Redux02 - Async with Redux Thunk","dateModified":"2018-12-27T00:00:00+09:00","datePublished":"2018-12-27T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React-Redux02 - Async with Redux Thunk | Nahyeon Lee</title>
+    <meta name="description" content="A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especi...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React-Redux02+-+Async+with+Redux+Thunk" class="">React-Redux02 - Async with Redux Thunk</h1>
+      <p class="meta">
+      December 27, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!</p>
+
+<h3 id="general-data-loading-with-redux">General Data Loading with Redux</h3>
+<ol>
+  <li>Component gets rendered onto the screen</li>
+  <li>Component’s ‘componentDidMount’ lifecycle method get called</li>
+  <li>We call Action Creator automatically from ‘componentDidMount’</li>
+  <li>Action Creator runs code to make an API request</li>
+  <li>API responds with data</li>
+  <li>Action creator returns an ‘action’ with the fetched data on the ‘payload’ property; <em>this is where Redux-Thunk comes into play</em></li>
+  <li>Specially configured reducers sees the action, returns the data of the ‘payload’</li>
+  <li>Because we generated some new state object, redux/react-redux cause our React app to be rerendered; we get fetched data into a component by generating new state in our redux store, then getting that into our component through mapStateToProps</li>
+</ol>
+
+<p>In relation to the process above, if we make Action Creator like below, there will be an error as the reason in the comments:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// /src/actions/index.js</span>
+<span class="k">import</span> <span class="nx">jsonPlaceholder</span> <span class="k">from</span> <span class="s1">'../apis/jsonPlaceholder'</span><span class="p">;</span>
+
+<span class="c1">// There is an error in this component, because this Action Creator is not returning a plain JavaScript object, because we have the async await syntax.</span>
+<span class="c1">// However, we cannot just simply skip this async await syntax.</span>
+<span class="c1">// This is because by the time we finally get a response from the API,</span>
+<span class="c1">// our action has long since been processed by our reducers that have already ran.</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">fetchPosts</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">jsonPlaceholder</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/posts'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s1">'FETCH_POSTS'</span><span class="p">,</span>
+        <span class="na">payload</span><span class="p">:</span> <span class="nx">response</span>
+    <span class="p">};</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 id="rules-with-redux-thunk">Rules with Redux Thunk</h3>
+<p>In the normal rules of Action Creator in Redux, “it must return action objects”. However, with Redux Thunk, Action Creator can return action objects or functions. In the case that a function is returned, Redux Thunk is going to automatically call the function with dispatch and getState function. Once we get a response eventually, we can manually dispatch an action with the response at some point in time in the future.</p>
+
+<p>The code above can be fixed like this with React Thunk:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// /src/actions/index.js</span>
+<span class="k">import</span> <span class="nx">jsonPlaceholder</span> <span class="k">from</span> <span class="s1">'../apis/jsonPlaceholder'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">fetchPosts</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
+    <span class="k">async</span> <span class="nx">dispatch</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">jsonPlaceholder</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/posts'</span><span class="p">);</span>
+
+        <span class="nx">dispatch</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'FETCH_POSTS'</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nx">response</span> <span class="p">})</span>
+    <span class="p">};</span></code></pre></figure>
+
+<h3 id="app-repo">App Repo</h3>
+<p><a href="https://github.com/nh0627/udemy-react-redux/tree/master/14.blog">Here</a></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html&text=React-Redux02+-+Async+with+Redux+Thunk%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html&title=React-Redux02+-+Async+with+Redux+Thunk%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React-Redux02+-+Async+with+Redux+Thunk%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/27/async-redux.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tags</div>
+    
+
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+    <a class="button" href="/tags#react-redux">
+      <p><i class="fa fa-tag fa-fw"></i> react-redux</p>
+    </a>
+    
+    <a class="button" href="/tags#redux">
+      <p><i class="fa fa-tag fa-fw"></i> redux</p>
+    </a>
+    
+    <a class="button" href="/tags#redux-thunk">
+      <p><i class="fa fa-tag fa-fw"></i> redux-thunk</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React08 - Navigating with React Router" href="/udemy-react/2018/12/26/react-router.html">
+        React08 - Navigating with React Router
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React-Redux03 - Rules of Reducers" href="/udemy-react/2018/12/28/redux-reducers.html">
+        React-Redux03 - Rules of Reducers
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React App Practice01 - Youtube Browser APP | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React App Practice01 - Youtube Browser APP" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Features Search for a list of videos matching a search term with Youtube Public API When a user click on a video, it will be appeared on the screen with a title and a description" />
+<meta property="og:description" content="Features Search for a list of videos matching a search term with Youtube Public API When a user click on a video, it will be appeared on the screen with a title and a description" />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-24T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"Features Search for a list of videos matching a search term with Youtube Public API When a user click on a video, it will be appeared on the screen with a title and a description","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html","headline":"React App Practice01 - Youtube Browser APP","dateModified":"2018-12-24T00:00:00+09:00","datePublished":"2018-12-24T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React App Practice01 - Youtube Browser APP | Nahyeon Lee</title>
+    <meta name="description" content="Features  Search for a list of videos matching a search term with Youtube Public API  When a user click on a video, it will be appeared on the screen with a ...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React+App+Practice01+-+Youtube+Browser+APP" class="">React App Practice01 - Youtube Browser APP</h1>
+      <p class="meta">
+      December 24, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <h3 id="features">Features</h3>
+<ul>
+  <li>Search for a list of videos matching a search term with Youtube Public API</li>
+  <li>When a user click on a video, it will be appeared on the screen with a title and a description</li>
+</ul>
+
+<h3 id="concept">Concept</h3>
+<p><img src="/assets/img/posts/2018-12-24-concept.png" alt="concept" /></p>
+
+<h3 id="output">Output</h3>
+<p><img src="/assets/img/posts/2018-12-24-result.png" alt="result" /></p>
+
+<h3 id="repository">Repository</h3>
+<p><a href="https://github.com/nh0627/udemy-react-redux/tree/master/11.videos">Here</a></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>, also from <a href="https://reactjs.org/docs/getting-started.html">React Doc</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html&text=React+App+Practice01+-+Youtube+Browser+APP%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html&title=React+App+Practice01+-+Youtube+Browser+APP%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React+App+Practice01+-+Youtube+Browser+APP%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/24/youtube-app.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tags</div>
+    
+
+    
+    <a class="button" href="/tags#app-practice">
+      <p><i class="fa fa-tag fa-fw"></i> app-practice</p>
+    </a>
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React07 - Making a Simple Picture App with Ref(2)" href="/udemy-react/2018/12/23/picture-app-grid.html">
+        React07 - Making a Simple Picture App with Ref(2)
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React-Redux00 - Intro to Redux" href="/udemy-react/2018/12/25/redux-intro.html">
+        React-Redux00 - Intro to Redux
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

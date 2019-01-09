@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React09 - React Portal | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React09 - React Portal" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="It would be hard to create a modal window in a React app. This is because it is difficult to load a modal component into other components due to a complicated component hierarchy(a component is a child of another component that is also a child of other components…) in React. Instead, we need to break the component hierarchy with a portal which allows us to render an element not as a direct child of a component, but as some child of other elements inside HTML structure." />
+<meta property="og:description" content="It would be hard to create a modal window in a React app. This is because it is difficult to load a modal component into other components due to a complicated component hierarchy(a component is a child of another component that is also a child of other components…) in React. Instead, we need to break the component hierarchy with a portal which allows us to render an element not as a direct child of a component, but as some child of other elements inside HTML structure." />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-30T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"It would be hard to create a modal window in a React app. This is because it is difficult to load a modal component into other components due to a complicated component hierarchy(a component is a child of another component that is also a child of other components…) in React. Instead, we need to break the component hierarchy with a portal which allows us to render an element not as a direct child of a component, but as some child of other elements inside HTML structure.","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html","headline":"React09 - React Portal","dateModified":"2018-12-30T00:00:00+09:00","datePublished":"2018-12-30T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React09 - React Portal | Nahyeon Lee</title>
+    <meta name="description" content="It would be hard to create a modal window in a React app. This is because it is difficult to load a modal component into other components due to a complicate...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React09+-+React+Portal" class="">React09 - React Portal</h1>
+      <p class="meta">
+      December 30, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>It would be hard to create a modal window in a React app. This is because it is difficult to load a modal component into other components due to a complicated component hierarchy(a component is a child of another component that is also a child of other components…) in React. Instead, we need to break the component hierarchy with a portal which allows us to render an element not as a direct child of a component, but as some child of other elements inside HTML structure.</p>
+
+<h3 id="create-a-modal-window-with-a-portal">Create a modal window with a portal</h3>
+
+<h4 id="basic-syntax">Basic syntax</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// "child" is a React child that we want to render</span>
+<span class="c1">// "container" is a location at HTML DOM that we want to put the child</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createPortal</span><span class="p">(</span><span class="nx">child</span><span class="p">,</span> <span class="nx">container</span><span class="p">)</span> </code></pre></figure>
+
+<h4 id="example-modal-code">Example modal code</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Modal.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="s1">'react-dom'</span><span class="p">;</span>
+
+<span class="c1">// This modal will be rendered at &lt;div id="modal"&gt;&lt;/div&gt; in index.html</span>
+<span class="kd">const</span> <span class="nx">Modal</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createPortal</span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">onDismiss</span><span class="p">}</span> 
+            <span class="nx">className</span><span class="o">=</span><span class="s2">"ui dimmer modals visible active"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">()}</span>
+                <span class="nx">className</span><span class="o">=</span><span class="s2">"ui standard modal visible active"</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"header"</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"content"</span><span class="o">&gt;</span>
+                    <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">content</span><span class="p">}</span>
+                <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"actions"</span><span class="o">&gt;</span>
+                    <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">actions</span><span class="p">}</span>
+                <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err">,
+</span>        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#modal'</span><span class="p">)</span>
+    <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Modal</span><span class="p">;</span></code></pre></figure>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>, also from <a href="https://reactjs.org/docs/getting-started.html">React Doc</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html&text=React09+-+React+Portal%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html&title=React09+-+React+Portal%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React09+-+React+Portal%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/30/react-portal.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tag</div>
+    
+
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React-Redux05 - RESTful with React-Redux" href="/udemy-react/2018/12/29/restful-react-redux.html">
+        React-Redux05 - RESTful with React-Redux
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React App Practice02 - Video Streaming App" href="/udemy-react/2019/01/01/stream-app.html">
+        React App Practice02 - Video Streaming App
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2019/01/09/context.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React - Context System with React | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React - Context System with React" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Props System Gets data from a parent component to a direct child component" />
+<meta property="og:description" content="Props System Gets data from a parent component to a direct child component" />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2019/01/09/context.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2019/01/09/context.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-09T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"Props System Gets data from a parent component to a direct child component","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2019/01/09/context.html","headline":"React - Context System with React","dateModified":"2019-01-09T00:00:00+09:00","datePublished":"2019-01-09T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2019/01/09/context.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React - Context System with React | Nahyeon Lee</title>
+    <meta name="description" content="Props System  Gets data from a parent component to a direct child component">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React+-+Context+System+with+React" class="">React - Context System with React</h1>
+      <p class="meta">
+      January 9, 2019
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <h3 id="props-system">Props System</h3>
+<ul>
+  <li>Gets data from a parent component to a direct child component</li>
+</ul>
+
+<h3 id="context-system">Context System</h3>
+<ul>
+  <li>Gets data from a parent component to any arbitrary nested child component, so it does not have to be a direct one to one communication as props system.</li>
+</ul>
+
+<h4 id="two-ways-to-get-information-out-of-or-into-a-context-object">Two ways to get information out of or into a context object</h4>
+<p><img src="/assets/img/posts/2019-01-09-context-two-way.png" alt="context" /></p>
+<ul>
+  <li>Get information into a context object
+    <ol>
+      <li>Setting up a default value</li>
+      <li>Creating a provider component in a parent component</li>
+    </ol>
+  </li>
+  <li>Get infomation out of a context object
+    <ol>
+      <li>Reference a context property inside of a nested child component</li>
+      <li>Creating a component called a consumer inside a nested child component, when we have multiple context objects</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="example-with-context">Example with Context</h4>
+<p>App component as below is able to communicate to Button/Field components without UserCreate with a context object
+<img src="/assets/img/posts/2019-01-09-context.png" alt="example" /></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// LanguageContext.js - Context object</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+<span class="c1">// Set a "default value"</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createContext</span><span class="p">(</span><span class="s1">'english'</span><span class="p">);</span> </code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Field.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">LanguageContext</span> <span class="k">from</span> <span class="s1">'../contexts/LanguageContext'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Field</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="c1">// Reference a context property inside of a nested child component</span>
+    <span class="c1">// It should be called "contextType" exactly</span>
+    <span class="kr">static</span> <span class="nx">contextType</span> <span class="o">=</span> <span class="nx">LanguageContext</span><span class="p">;</span> 
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Upon the context, the text will be changed</span>
+        <span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">===</span> <span class="s1">'english'</span> <span class="p">?</span> <span class="s1">'Name'</span> <span class="p">:</span> <span class="s1">'이름'</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui field"</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="p">{</span> <span class="nx">text</span> <span class="p">}:</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">input</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Field</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Button.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">LanguageContext</span> <span class="k">from</span> <span class="s1">'../contexts/LanguageContext'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Button</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui button primary"</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="cm">/* Creating a component called a consumer inside a nested child component */</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="nx">LanguageContext</span><span class="p">.</span><span class="nx">Consumer</span><span class="o">&gt;</span>
+                <span class="p">{</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="o">===</span> <span class="s1">'english'</span><span class="p">?</span> <span class="s1">'Submit'</span> <span class="p">:</span> <span class="s1">'제출'</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="sr">/LanguageContext.Consumer</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Button</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// App.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">UserCreate</span> <span class="k">from</span> <span class="s1">'./UserCreate'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">LanguageContext</span> <span class="k">from</span> <span class="s1">'../contexts/LanguageContext'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">language</span><span class="p">:</span> <span class="s1">'english'</span> <span class="p">};</span>
+
+    <span class="nx">onLanguageChange</span> <span class="o">=</span> <span class="nx">language</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">language</span> <span class="p">});</span>
+    <span class="p">};</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui container"</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                    <span class="nx">Select</span> <span class="nx">a</span> <span class="na">language</span><span class="p">:</span>
+                    <span class="o">&lt;</span><span class="nx">i</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"flag us"</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">onLanguageChange</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)</span> <span class="p">}</span><span class="sr">/</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">i</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"flag kr"</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">onLanguageChange</span><span class="p">(</span><span class="s1">'dutch'</span><span class="p">)</span> <span class="p">}</span><span class="sr">/</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                <span class="p">{</span><span class="cm">/* Creating a provider component in a parent component to get information from the context object */</span><span class="p">}</span>
+                <span class="o">&lt;</span><span class="nx">LanguageContext</span><span class="p">.</span><span class="nx">Provider</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">language</span><span class="p">}</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">UserCreate</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="sr">/LanguageContext.Provider</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="example-repository">Example Repository</h4>
+<p><a href="https://github.com/nh0627/udemy-react-redux/tree/master/23.translate">Here</a></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2019/01/09/context.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2019/01/09/context.html&text=React+-+Context+System+with+React%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2019/01/09/context.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2019/01/09/context.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2019/01/09/context.html&title=React+-+Context+System+with+React%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React+-+Context+System+with+React%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2019/01/09/context.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tags</div>
+    
+
+    
+    <a class="button" href="/tags#context">
+      <p><i class="fa fa-tag fa-fw"></i> context</p>
+    </a>
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React App Practice02 - Video Streaming App" href="/udemy-react/2019/01/01/stream-app.html">
+        React App Practice02 - Video Streaming App
+      </a>
+  </div>
+  
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

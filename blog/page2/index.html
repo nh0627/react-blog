@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/blog/page2/">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Page 2 of 4 for Nahyeon Lee | A Full-stack Web Developer</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Full-stack Web Developer" />
+<meta property="og:description" content="A Full-stack Web Developer" />
+<link rel="canonical" href="https://nh0627.github.io/blog/page2/" />
+<meta property="og:url" content="https://nh0627.github.io/blog/page2/" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<link rel="prev" href="https://nh0627.github.io/blog/" />
+<link rel="next" href="https://nh0627.github.io/blog/page3" />
+<script type="application/ld+json">
+{"description":"A Full-stack Web Developer","@type":"WebPage","url":"https://nh0627.github.io/blog/page2/","headline":"Nahyeon Lee","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title> Nahyeon Lee</title>
+    <meta name="description" content="">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <div class="home">
+  
+  <div class="call-out" style="background-image: url('/assets/img/headers/header4.jpg')">
+    <h1 class="title"><span>Blog</span></h1>
+    <h2 class="subtitle highlight-grey"><span>From my daily coding life</span></h2>
+  </div>
+  
+
+  <div class="posts">
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a alt="React-Redux03 - Rules of Reducers" class="post-link" href="/udemy-react/2018/12/28/redux-reducers.html">
+                React-Redux03 - Rules of Reducers
+              </a>
+            </h1>
+            <p class="meta">
+              December 28, 2018
+            </p>
+          </header>
+          <div class="excerpt">
+              Rules of Reducers
+
+  Produces ‘state’ or data to be used inside of your app using only previous state and the action
+  Must return any value besides ‘undefine’
+
+
+export default() =&amp;gt; {
+    // Error: it should always have return statement!
+}
+
+
+  Must not return reach ‘out of itself’ to decide what value to return(reducers are pure)
+
+
+export default(state, action) =&amp;gt; {
+    // bad!
+    return document.querySelector(&#39;input&#39;);
+    // bad!
+    return axios.get(&#39;/posts&#39;);
+    // good
+    return state + action;
+}
+
+
+  Must not mutate its input ‘state’ argument; We are not going to mutate state ever! However, When we work on a reducer that is returning an array or an object, we might want to change an element/property in the returned array/object. In that case, we can use the syntax below which also makes sure we are not mutating any state argument, because it creates a new array or object:
+
+
+
+
+          </div>
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a alt="React-Redux02 - Async with Redux Thunk" class="post-link" href="/udemy-react/2018/12/27/async-redux.html">
+                React-Redux02 - Async with Redux Thunk
+              </a>
+            </h1>
+            <p class="meta">
+              December 27, 2018
+            </p>
+          </header>
+          <div class="excerpt">
+              A middleware makes network requests from the Redux side of app. It is a plain JavaScript function that is called with every single action we dispatch. Especially it is required when we work with an asynchronous Action Creator, because it has the ability to STOP, MODIFY or otherwise mess around with actions. Redux Thunk is one of middelwares in the world of Redux that can work with Action Creators!
+
+
+          </div>
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a alt="React08 - Navigating with React Router" class="post-link" href="/udemy-react/2018/12/26/react-router.html">
+                React08 - Navigating with React Router
+              </a>
+            </h1>
+            <p class="meta">
+              December 26, 2018
+            </p>
+          </header>
+          <div class="excerpt">
+              Ract Router can let a user navigate to another page with different URLs in our app. However, unlike the traditional way of handling this, we should not use the traditional anchor tag to link somewhere. Because it will return a new HTML document so we will lose all data in memory and access to any API. We’d better use Link tag in this case as below code to keep a browser from dumping all our react and JavaScript data.
+
+
+          </div>
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a alt="React-Redux01 - React with Redux" class="post-link" href="/udemy-react/2018/12/26/react-redux.html">
+                React-Redux01 - React with Redux
+              </a>
+            </h1>
+            <p class="meta">
+              December 26, 2018
+            </p>
+          </header>
+          <div class="excerpt">
+              The Redux library is not only designed to work with React. Thus, we have to note that after installing React and Redux, and we need a third party library, React-Redux, which can let us use integrate React with Redux.
+
+
+          </div>
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a alt="React-Redux00 - Intro to Redux" class="post-link" href="/udemy-react/2018/12/25/redux-intro.html">
+                React-Redux00 - Intro to Redux
+              </a>
+            </h1>
+            <p class="meta">
+              December 25, 2018
+            </p>
+          </header>
+          <div class="excerpt">
+              Redux is a state management library. The goal of React is rendering content and handling user interaction rather than handling data. For handling data, we can make Redux keep/handle states of our app in/from a single store. By doing so, we can create an advanced application easier with Redux than using React alone.
+
+
+          </div>
+      </span>
+    </div>
+    
+</div>
+
+
+<div class="pagination" style="display: inline-block;">
+    <div style="position: absolute; left: 35%;">
+    
+        <!-- << -->
+           
+        <!-- < previous -->
+        <a href="/blog/"  class="button">
+          <i class="fa fa-chevron-left"></i>
+          Prev
+        </a>
+    
+    </div>            
+    
+    <!-- Centering not working well on all format
+    <div style="position: absolute; left: 50%;">
+        <div style="position: relative; left: -50%;">
+        2 / 4
+        </div>    
+    </div> -->     
+
+    <div style="position: absolute; right: 35%;">
+    
+        <!-- next > -->
+        <a alt="Next" 
+           href="/blog/page3" style="margin-right:0" class="button">
+          Next
+          <i class="fa fa-chevron-right"></i>
+        </a>
+        <!-- >> -->
+        
+        <a href="/blog/page4" style="margin-left:0" class="button">
+          <i class="fa fa-angle-double-right"></i>
+        </a>
+        
+    
+    </div>     
+</div>
+
+
+    
+</div>
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

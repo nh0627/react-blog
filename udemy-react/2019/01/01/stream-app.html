@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React App Practice02 - Video Streaming App | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React App Practice02 - Video Streaming App" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is about a video stream app that I made through Modern React with Redux." />
+<meta property="og:description" content="This post is about a video stream app that I made through Modern React with Redux." />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-01T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"This post is about a video stream app that I made through Modern React with Redux.","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html","headline":"React App Practice02 - Video Streaming App","dateModified":"2019-01-01T00:00:00+09:00","datePublished":"2019-01-01T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React App Practice02 - Video Streaming App | Nahyeon Lee</title>
+    <meta name="description" content="This post is about a video stream app that I made through Modern React with Redux.">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React+App+Practice02+-+Video+Streaming+App" class="">React App Practice02 - Video Streaming App</h1>
+      <p class="meta">
+      January 1, 2019
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>This post is about a video stream app that I made through <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>.</p>
+
+<h3 id="screen-shot">Screen Shot</h3>
+<p><img src="/assets/img/posts/2019-01-08-streamy.png" alt="streamy" /></p>
+
+<h3 id="features-with-the-course">Features with the course</h3>
+<ul>
+  <li>Navigator with routing</li>
+  <li>Login/Logout with Google OAuth to manage a stream/channel and comments</li>
+  <li>List of all the streams with a simple description underneath it</li>
+  <li>Detail pages to show a streamed video</li>
+  <li>Every user can create/retrieve/delete/edit unlimited streams/channels</li>
+</ul>
+
+<h3 id="fetures-that-i-updated">Fetures that I updated</h3>
+<ul>
+  <li>Every user can make/retrieve/delete a comment to/from each stream/channels</li>
+  <li>Add categories to filter streams</li>
+</ul>
+
+<h3 id="skills">Skills</h3>
+<ul>
+  <li>Client: React, Redux</li>
+  <li>API Server: JSON Server</li>
+  <li>RTMP Server: <a href="https://github.com/illuspas/Node-Media-Server">Node-Media-Server</a></li>
+</ul>
+
+<h3 id="libraries">Libraries</h3>
+<ul>
+  <li>react</li>
+  <li>redux</li>
+  <li>react-redux</li>
+  <li>axios</li>
+  <li>redux-thunk</li>
+  <li>redux-form</li>
+  <li>react-router-dom</li>
+  <li>lodash</li>
+  <li>dateformat</li>
+  <li>json-server</li>
+  <li><a href="https://github.com/illuspas/Node-Media-Server">node-media-server</a></li>
+  <li><a href="https://obsproject.com/">OBS Studio</a></li>
+</ul>
+
+<h3 id="repository">Repository</h3>
+<p><a href="https://github.com/nh0627/react-video-stream">Here</a></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html&text=React+App+Practice02+-+Video+Streaming+App%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html&title=React+App+Practice02+-+Video+Streaming+App%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React+App+Practice02+-+Video+Streaming+App%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2019/01/01/stream-app.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tags</div>
+    
+
+    
+    <a class="button" href="/tags#app-practice">
+      <p><i class="fa fa-tag fa-fw"></i> app-practice</p>
+    </a>
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+    <a class="button" href="/tags#react-redux">
+      <p><i class="fa fa-tag fa-fw"></i> react-redux</p>
+    </a>
+    
+    <a class="button" href="/tags#redux">
+      <p><i class="fa fa-tag fa-fw"></i> redux</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React09 - React Portal" href="/udemy-react/2018/12/30/react-portal.html">
+        React09 - React Portal
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React - Context System with React" href="/udemy-react/2019/01/09/context.html">
+        React - Context System with React
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

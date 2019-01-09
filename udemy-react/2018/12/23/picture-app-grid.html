@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React07 - Making a Simple Picture App with Ref(2) | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React07 - Making a Simple Picture App with Ref(2)" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In the previous post, I made an app listing pictures according to user’s keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images." />
+<meta property="og:description" content="In the previous post, I made an app listing pictures according to user’s keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images." />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-23T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"In the previous post, I made an app listing pictures according to user’s keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images.","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html","headline":"React07 - Making a Simple Picture App with Ref(2)","dateModified":"2018-12-23T00:00:00+09:00","datePublished":"2018-12-23T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React07 - Making a Simple Picture App with Ref(2) | Nahyeon Lee</title>
+    <meta name="description" content="In the previous post, I made an app listing pictures according to user’s keyword input. However, in this post I would like to make each picture as a grid in ...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React07+-+Making+a+Simple+Picture+App+with+Ref%282%29" class="">React07 - Making a Simple Picture App with Ref(2)</h1>
+      <p class="meta">
+      December 23, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>In the previous post, I made an app listing pictures according to user’s keyword input. However, in this post I would like to make each picture as a grid in order to let the app have a better display of images.</p>
+
+<h3 id="before">Before</h3>
+<p><img src="/assets/img/posts/2018-12-22-picture-1.png" alt="picture" /></p>
+
+<h3 id="now">Now</h3>
+<p><img src="/assets/img/posts/2018-12-23-picture-2.png" alt="picture" /></p>
+
+<p>To do so, ImageCard component needs to be made to put each picture into grid in the order below:</p>
+<ol>
+  <li>Let the ImageCard render itself and its image.</li>
+  <li>Reach into the DOM and figure out the height of the image. <em>We need React refs here!</em></li>
+  <li>Set the image height on state to get the component to rerender.</li>
+  <li>When rerendering, assign a ‘grid-row-end’ to make sure the image takes up the appropriate space.</li>
+</ol>
+
+<h3 id="react-refs">React Refs</h3>
+<ul>
+  <li>Gives direct access to a single DOM element rendered by a component</li>
+  <li>We create refs in the constructor, assign them to instance vairables, then pass to a particular JSX element as props</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">ImageCard</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createRef</span><span class="p">();</span> <span class="c1">// Create a React ref</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">clientHeight</span><span class="p">);</span> <span class="c1">// We can print out each image's height</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">description</span><span class="p">,</span> <span class="nx">urls</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">image</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">img</span>
+                    <span class="p">{</span><span class="cm">/*Pass a new prop ref to wire up the ref (JSX tag)*/</span><span class="p">}</span>
+                    <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span><span class="p">}</span>
+                    <span class="nx">alt</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span>
+                    <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">urls</span><span class="p">.</span><span class="nx">regular</span><span class="p">}</span>
+                <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">ImageCard</span><span class="p">;</span></code></pre></figure>
+
+<p>By the way, if we execute the code above, we can see the image height is 0 on Chrome console. This is because when we console log out the height of the image, there is no image downloaded yet. It is too early to get the image height value at the time, because there is no image loaded yet. To fix this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">ImageCard</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">spans</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span> <span class="c1">// Initialize a state</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createRef</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// It will listen for the event load any time that an image loaded, and then call setSpans() </span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">setSpans</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">setSpans</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// Get the correct height of each image and set it into the state</span>
+        <span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">clientHeight</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">spans</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">spans</span> <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">description</span><span class="p">,</span> <span class="nx">urls</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">image</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="na">gridRowEnd</span><span class="p">:</span><span class="s2">`span </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">spans</span><span class="p">}</span><span class="s2">`</span><span class="p">}}</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">img</span>
+                    <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">imageRef</span><span class="p">}</span>
+                    <span class="nx">alt</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span>
+                    <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">urls</span><span class="p">.</span><span class="nx">regular</span><span class="p">}</span>
+                <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">ImageCard</span><span class="p">;</span></code></pre></figure>
+
+<p>The final code is <a href="https://github.com/nh0627/udemy-react-redux/tree/master/07.pics">here</a>.</p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>, also from <a href="https://reactjs.org/docs/getting-started.html">React Doc</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html&text=React07+-+Making+a+Simple+Picture+App+with+Ref%282%29%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html&title=React07+-+Making+a+Simple+Picture+App+with+Ref%282%29%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React07+-+Making+a+Simple+Picture+App+with+Ref%282%29%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/23/picture-app-grid.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tag</div>
+    
+
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)" href="/udemy-react/2018/12/22/picture-app-list.html">
+        React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React App Practice01 - Youtube Browser APP" href="/udemy-react/2018/12/24/youtube-app.html">
+        React App Practice01 - Youtube Browser APP
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

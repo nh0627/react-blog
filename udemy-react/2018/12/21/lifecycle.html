@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React05 - Component Lifecycle | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React05 - Component Lifecycle" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Component lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time during the component lifecycle." />
+<meta property="og:description" content="Component lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time during the component lifecycle." />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-21T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"Component lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time during the component lifecycle.","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html","headline":"React05 - Component Lifecycle","dateModified":"2018-12-21T00:00:00+09:00","datePublished":"2018-12-21T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React05 - Component Lifecycle | Nahyeon Lee</title>
+    <meta name="description" content="Component lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time dur...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React05+-+Component+Lifecycle" class="">React05 - Component Lifecycle</h1>
+      <p class="meta">
+      December 21, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>Component lifecycle method is a function that can be optionally defined and used inside of class-based components if we want to use it at a distinct time during the component lifecycle.</p>
+
+<h3 id="component-lifecycle-methods">Component lifecycle methods</h3>
+<ul>
+  <li>componentDidMount(): when a component rendered to DOM for the first time; it is recommended to initialize data than constructor</li>
+  <li>componentDidUpdate(): anytime a component gets updated</li>
+  <li>componentWillUnmount() when a component removed from DOM.</li>
+</ul>
+
+<h4 id="application-with-class-component-state-and-lifecycle-detecting-a-users-geolocation-and-determining-if-the-users-season-is-summer-or-winter-repo">Application with class-component, state and lifecycle detecting a user’s geolocation and determining if the user’s season is summer or winter <a href="https://github.com/nh0627/udemy-react-redux/tree/master/04.seasons">Repo</a></h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// index.js</span>
+<span class="cm">/* It will handle initializing state on user's geolocation, 
+component life cycle, and render a error/season/loader message upon condition below. */</span>
+
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="s1">'react-dom'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">SeasonDisplay</span> <span class="k">from</span> <span class="s1">'./SeasonDisplay'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Loader</span> <span class="k">from</span> <span class="s1">'./loader'</span>
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+
+    <span class="c1">// Any constructor is not required!</span>
+    <span class="c1">// Babel will put this line into Constructor anyways</span>
+    <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">lat</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="na">errorMessage</span><span class="p">:</span> <span class="s1">''</span> <span class="p">};</span> 
+
+    <span class="c1">// Lifecycle method</span>
+    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'My component was rendered to the screen'</span><span class="p">);</span>
+        
+        <span class="c1">// Initialize data here(users physical location)</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span>
+            <span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="na">lat</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span> <span class="p">}),</span> 
+            <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="na">errorMessage</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Lifecycle method</span>
+    <span class="nx">componentDidUpdate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'My component was just updated - it re-rendered!'</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">errorMessage</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">lat</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span> <span class="nb">Error</span> <span class="p">:</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">errorMessage</span> <span class="p">}</span> <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">errorMessage</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">lat</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">&lt;</span><span class="nx">SeasonDisplay</span> <span class="kd">let</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">lat</span><span class="p">}</span> <span class="sr">/&gt; /</span><span class="o">/</span> <span class="nx">Pass</span> <span class="nx">state</span> <span class="k">as</span> <span class="nx">props</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Loader</span> <span class="nx">message</span><span class="o">=</span><span class="s2">"Please accept location request!"</span> <span class="o">/&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#root'</span><span class="p">)</span>
+<span class="p">);</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// SeasonDisplay.js</span>
+<span class="c1">// SeasonDisplay component shows different text/icons based on props</span>
+
+<span class="k">import</span> <span class="s1">'./SeasonDisplay.css'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">seasonConfig</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">summer</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">text</span><span class="p">:</span> <span class="s1">'Lets hit the beach!'</span><span class="p">,</span>
+        <span class="na">iconName</span><span class="p">:</span> <span class="s1">'sun'</span>
+    <span class="p">},</span>
+    <span class="na">winter</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">text</span><span class="p">:</span> <span class="s1">'Burr, it is chilly'</span><span class="p">,</span>
+        <span class="na">iconName</span><span class="p">:</span> <span class="s1">'snowflake'</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+
+<span class="c1">// Determine season responding to user's latitude</span>
+<span class="kd">const</span> <span class="nx">getSeason</span> <span class="o">=</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">month</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">month</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="nx">month</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="nx">lat</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'summer'</span> <span class="p">:</span> <span class="s1">'winter'</span><span class="p">;</span> 
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="nx">lat</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'summer'</span> <span class="p">:</span> <span class="s1">'winter'</span><span class="p">;</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">SeasonDisplay</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">season</span> <span class="o">=</span> <span class="nx">getSeason</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getMonth</span><span class="p">());</span>
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">text</span><span class="p">,</span> <span class="nx">iconName</span><span class="p">}</span> <span class="o">=</span> <span class="nx">seasonConfig</span><span class="p">[</span><span class="nx">season</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">`season-display </span><span class="p">${</span><span class="nx">season</span><span class="p">}</span><span class="s2">`</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">i</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">iconName</span><span class="p">}</span><span class="s2"> icon-left icon massive`</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span> <span class="nx">text</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">i</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">`</span><span class="p">${</span><span class="nx">iconName</span><span class="p">}</span><span class="s2"> icon-right icon massive`</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">SeasonDisplay</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">SeasonDisplay</span><span class="p">.</span><span class="nx">css</span>
+<span class="p">.</span><span class="nx">icon</span><span class="o">-</span><span class="nx">left</span> <span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nx">absolute</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">icon</span><span class="o">-</span><span class="nx">right</span> <span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nx">absolute</span><span class="p">;</span>
+    <span class="nl">bottom</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">season</span><span class="o">-</span><span class="nx">display</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nx">flex</span><span class="p">;</span>
+    <span class="nx">justify</span><span class="o">-</span><span class="nx">content</span><span class="p">:</span> <span class="nx">center</span><span class="p">;</span>
+    <span class="nx">align</span><span class="o">-</span><span class="nx">items</span><span class="p">:</span> <span class="nx">center</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="mi">100</span><span class="nx">vh</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">season</span><span class="o">-</span><span class="nx">display</span><span class="p">.</span><span class="nx">winter</span> <span class="nx">i</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">blue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">season</span><span class="o">-</span><span class="nx">display</span><span class="p">.</span><span class="nx">summer</span> <span class="nx">i</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">winter</span> <span class="p">{</span>
+    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">aliceblue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">summer</span> <span class="p">{</span>
+    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">orange</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// loader.js </span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Loader</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui active dimmer"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui big text loader"</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Set default value for props</span>
+<span class="nx">Loader</span><span class="p">.</span><span class="nx">defaultProps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">message</span><span class="p">:</span> <span class="s1">'Loading...'</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Loader</span><span class="p">;</span></code></pre></figure>
+
+<p>Output:
+<img src="/assets/img/posts/2018-12-21-season-1.png" alt="season" />
+<img src="/assets/img/posts/2018-12-21-season-2.png" alt="season" /></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>, also from <a href="https://reactjs.org/docs/getting-started.html">React Doc</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html&text=React05+-+Component+Lifecycle%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html&title=React05+-+Component+Lifecycle%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React05+-+Component+Lifecycle%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/21/lifecycle.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tag</div>
+    
+
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React04 - Class-based Components, State and Component Lifecycle" href="/udemy-react/2018/12/20/class-component-state.html">
+        React04 - Class-based Components, State and Component Lifecycle
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)" href="/udemy-react/2018/12/22/picture-app-list.html">
+        React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>

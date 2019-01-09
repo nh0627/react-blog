@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer=true src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Nahyeon Lee" href="https://nh0627.github.io/feed.xml"/>
+
+    <!-- Font Awesome -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/font-awesome.min.css">
+    
+    
+
+    <!-- Google Fonts -->
+    
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet" type="text/css"> 
+    
+
+    <!-- KaTeX 0.8.3 -->
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/vendor/katex.min.css">
+    <script src="/assets/js/vendor/katex.min.js">
+    </script>
+    
+
+    <!-- Google Analytics -->
+    
+    
+    <!-- seo tags -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>React06 - Making a Simple Picture App with React Input Form and Listing data from API(1) | Nahyeon Lee</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)" />
+<meta name="author" content="Nahyeon Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Event handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practice this points, I have implemented an application listing pictures according to user’s keyword to deal with how to use Input form and make Ajax call to API in React." />
+<meta property="og:description" content="Event handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practice this points, I have implemented an application listing pictures according to user’s keyword to deal with how to use Input form and make Ajax call to API in React." />
+<link rel="canonical" href="https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html" />
+<meta property="og:url" content="https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html" />
+<meta property="og:site_name" content="Nahyeon Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-22T00:00:00+09:00" />
+<script type="application/ld+json">
+{"description":"Event handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practice this points, I have implemented an application listing pictures according to user’s keyword to deal with how to use Input form and make Ajax call to API in React.","author":{"@type":"Person","name":"Nahyeon Lee"},"@type":"BlogPosting","url":"https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html","headline":"React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)","dateModified":"2018-12-22T00:00:00+09:00","datePublished":"2018-12-22T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Manual seo tags -->
+    <!--
+    <title>React06 - Making a Simple Picture App with React Input Form and Listing data from API(1) | Nahyeon Lee</title>
+    <meta name="description" content="Event handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practi...">
+    -->
+</head>
+
+  <body>
+    <header class="site-header">
+    
+    <!-- Logo and title -->
+	<div class="branding">
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/icon.png" alt=""/>
+		</a>
+
+		<!-- <h1 class="site-title">
+			<a alt="Nahyeon Lee" href="/"> 
+                Nahyeon Lee
+            </a>
+		</h1> -->
+	</div>
+    
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a name="pull" id="pull" class="toggle" href="#">
+    <i class="fa fa-bars fa-lg"></i>
+    </a>
+    
+    <!-- Menu -->
+    <ul class="hide">
+                 
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" name="blog" 
+                href="/blog">
+                Blog
+            </a>
+        </li>
+
+        <!-- Auto Generation of NORMAL pages in the navbar -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        <!-- Auto Generation of SPECIAL pages in the navbar -->
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/search" name="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+          
+            <li class="separator"> | </li>
+            <li>
+              <a class="clear" href="/tags" name="tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              </a>
+            </li>
+          
+        
+    </ul>
+        
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('')">
+    
+      <h1 id="React06+-+Making+a+Simple+Picture+App+with+React+Input+Form+and+Listing+data+from+API%281%29" class="">React06 - Making a Simple Picture App with React Input Form and Listing data from API(1)</h1>
+      <p class="meta">
+      December 22, 2018
+       - Nahyeon Lee
+      </p>
+    
+  </header>
+  <section class="post-content">
+  
+      <p>Event handlers in React work simliarly to normal HTML DOM. However, there are certain differences that we have to be aware of using React as below. To practice this points, I have implemented an application listing pictures according to user’s keyword to deal with how to use Input form and make Ajax call to API in React.</p>
+
+<h3 id="returning-false">Returning false</h3>
+<p>To prevent default behavior, we cannot return ‘false’ like a normal HTML code. Rather, we have to call preventDefault:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// HTML</span>
+<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">"onExampleCilck(); return false"</span><span class="o">&gt;</span><span class="nx">Submit</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>
+<span class="c1">// React</span>
+<span class="kd">function</span> <span class="nx">onExampleCilck</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="controlled-components">Controlled components</h3>
+<p>We’d better store data in mutable React state than the DOM rather than letting HTML form keep data as it does natually. If we store data in React state, React component can do both render a form and control the form’s data from user input; it is easiler way to control data in React! This is called “controlled component” that data/value of an input form element is controlled by React like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="kd">class</span> <span class="nx">SearchBar</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+	<span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">term</span><span class="p">:</span> <span class="s1">''</span> <span class="p">};</span>
+
+	<span class="nx">onFormSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+	<span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onSubmit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">term</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="p">(</span>
+			<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui segment"</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onFormSubmit</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui form"</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"field"</span><span class="o">&gt;</span>
+						<span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="nx">Image</span> <span class="na">search</span><span class="p">:</span>
+							<span class="o">&lt;</span><span class="nx">input</span> 
+							<span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> 
+							<span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">term</span><span class="p">}</span>
+							<span class="nx">onChange</span><span class="o">=</span><span class="p">{</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="na">term</span><span class="p">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">})</span> <span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>							<span class="p">{</span><span class="cm">/* Controlled component: React state will control submitted value */</span><span class="p">}</span>
+						<span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>					<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>				<span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>			<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>		<span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="axios-vs-fetch-the-axios-is-recommended-to-make-ajax-call">axios VS. fetch: the axios is recommended to make Ajax call</h3>
+<ul>
+  <li>The axios is a standalone third party package that can be installed into a React project</li>
+  <li>The fetch function is a singular function that is built into almost all modern browsers, but far more basic to use</li>
+  <li>How to install axios: npm install –save axios</li>
+</ul>
+
+<h3 id="the-app-features-repo">The app features (<a href="https://github.com/nh0627/udemy-react-redux/tree/master/07.pics">repo</a>)</h3>
+<ol>
+  <li>Get a search term from a user</li>
+  <li>Use the search term to make a request to an outside API and fetch data</li>
+  <li>Take the fetches images and show them on the screen in a list</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* This app contains two components: SearchBar and ImageList */</span>
+
+<span class="c1">// App.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">unsplash</span> <span class="k">from</span> <span class="s1">'../api/unsplash'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">SearchBar</span> <span class="k">from</span> <span class="s1">'./SearchBar'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ImageList</span> <span class="k">from</span> <span class="s1">'./ImageList'</span><span class="p">;</span>
+
+<span class="cm">/* This app contains two components: SearchBar and ImageList */</span>
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span>
+
+    <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">images</span><span class="p">:</span> <span class="p">[]</span> <span class="p">};</span>
+
+    <span class="c1">// In ES2015, aero functions automatically bind the value of "this" for all code inside the function.</span>
+    <span class="c1">// This request is an asynchronous request, it will take some amount of time to get a result from API.</span>
+    <span class="nx">onSearchSubmit</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">term</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// When we put async/await keyword, it will wait till getting a response from API and we can freely work with it later.</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">unsplash</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/search/photos'</span><span class="p">,</span> <span class="p">{</span>
+            <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">query</span><span class="p">:</span> <span class="nx">term</span> <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="na">images</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">results</span> <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui container"</span> <span class="nx">style</span><span class="o">=&gt;</span>
+                <span class="o">&lt;</span><span class="nx">SearchBar</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onSearchSubmit</span><span class="p">}</span><span class="sr">/</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">ImageList</span> <span class="nx">images</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">images</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// unsplash.js</span>
+<span class="k">import</span> <span class="nx">axios</span> <span class="k">from</span> <span class="s1">'axios'</span><span class="p">;</span>
+<span class="c1">// This create method is going to create a pre-customized instance of the axios.</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+	<span class="na">baseURL</span><span class="p">:</span> <span class="s1">'https://api.unsplash.com'</span><span class="p">,</span>
+	<span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">Authorization</span><span class="p">:</span> 
+		<span class="s1">'Client-ID ID'</span> <span class="c1">// Put API access key</span>
+	<span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// SearchBar.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="kd">class</span> <span class="nx">SearchBar</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+	<span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="na">term</span><span class="p">:</span> <span class="s1">''</span> <span class="p">};</span>
+	<span class="c1">// In ES2015, aero functions automatically bind the value of "this" for all code inside the function. if not, "this" will be undefined</span>
+	<span class="c1">// keep the browser from trying to submit the form automatically and in the process refreshing the page</span>
+	<span class="nx">onFormSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+	<span class="c1">// Passing submitted data to the parent App component</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onSubmit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">term</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="p">(</span>
+			<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui segment"</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onFormSubmit</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"ui form"</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"field"</span><span class="o">&gt;</span>
+						<span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="nx">Image</span> <span class="na">search</span><span class="p">:</span>
+							<span class="o">&lt;</span><span class="nx">input</span> 
+							<span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> 
+							<span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">term</span><span class="p">}</span>
+							<span class="nx">onChange</span><span class="o">=</span><span class="p">{</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="na">term</span><span class="p">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">})</span> <span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>							<span class="p">{</span><span class="cm">/* Controlled component: React state will control submitted value */</span><span class="p">}</span>
+						<span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>					<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>				<span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>			<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>		<span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">SearchBar</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// ImageList.js</span>
+<span class="kd">const</span> <span class="nx">ImageList</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="c1">// Push props.images into an array and display it into div</span>
+	<span class="kd">const</span> <span class="nx">images</span> <span class="o">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="nx">map</span><span class="p">(({</span> <span class="nx">description</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">urls</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="c1">// Listing images with map() function</span>
+		<span class="c1">// Let each element has a unique key(id property) in a list also to identify elements.</span>
+		<span class="k">return</span><span class="p">(</span>
+			<span class="o">&lt;</span><span class="nx">img</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">id</span><span class="p">}</span> <span class="nx">alt</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">urls</span><span class="p">.</span><span class="nx">regular</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>			<span class="p">);</span>
+		<span class="p">});</span>
+		<span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">images</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="p">};</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">ImageList</span><span class="p">;</span></code></pre></figure>
+
+<p>Output:
+<img src="/assets/img/posts/2018-12-22-picture-1.png" alt="picture" /></p>
+
+<p>The source of this post and code is from <a href="https://www.udemy.com/react-redux/">Modern React with Redux</a>, also from <a href="https://reactjs.org/docs/getting-started.html">React Doc</a>.</p>
+
+
+    
+  </section>
+  
+  <!-- Social media shares -->
+  <div class="share-buttons">
+    <ul class="share-buttons">
+        <div class="meta">Share</div>
+        
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html" target="_blank" title="Share on Facebook">
+			<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Facebook</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://twitter.com/intent/tweet?source=https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html&text=React06+-+Making+a+Simple+Picture+App+with+React+Input+Form+and+Listing+data+from+API%281%29%20%7C%20Nahyeon+Lee:%20https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html" target="_blank" title="Tweet">
+			<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Tweet</span>
+		</a>
+        </li>
+         
+        <li>
+            <a href="https://plus.google.com/share?url=https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html" target="_blank" title="Share on Google+">
+			<i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Google+</span>
+		</a>
+        </li>
+            
+        <li>
+            <a href="http://www.reddit.com/submit?url=https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html&title=React06+-+Making+a+Simple+Picture+App+with+React+Input+Form+and+Listing+data+from+API%281%29%20%7C%20Nahyeon+Lee" target="_blank" title="Share on Reddit">
+			<i class="fa fa-reddit-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Share on Reddit</span>
+		</a>
+        </li>
+           
+        <li>
+            <a href="mailto:?subject=React06+-+Making+a+Simple+Picture+App+with+React+Input+Form+and+Listing+data+from+API%281%29%20%7C%20Nahyeon+Lee&body=:%20https://nh0627.github.io/udemy-react/2018/12/22/picture-app-list.html" target="_blank" title="Email">
+			<i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+			<span class="sr-only">Email</span>
+		</a>
+        </li>
+        
+    </ul>
+</div>
+   
+   <!-- Tag list -->
+  
+  
+
+
+<footer>
+  <div class="tag-list">
+    
+      <div class="meta">Tag</div>
+    
+
+    
+    <a class="button" href="/tags#react">
+      <p><i class="fa fa-tag fa-fw"></i> react</p>
+    </a>
+    
+  </div>
+</footer>
+
+    
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+  <div id="post-nav">
+  
+  <div id="previous-post" class="post-nav-post">
+      <p>Previous post</p>
+      <a alt="React05 - Component Lifecycle" href="/udemy-react/2018/12/21/lifecycle.html">
+        React05 - Component Lifecycle
+      </a>
+  </div>
+  
+  
+  <div id="next-post" class="post-nav-post">
+      <p>Next post</p>
+      <a alt="React07 - Making a Simple Picture App with Ref(2)" href="/udemy-react/2018/12/23/picture-app-grid.html">
+        React07 - Making a Simple Picture App with Ref(2)
+      </a>
+  </div>
+  
+</div>
+
+
+
+    </div>
+    
+<footer class="site-footer">
+    <div>
+        <p class="text">© <a href="https://nh0627.github.io/">Nahyeon Lee</a>. 2019
+</p>
+        <div class="footer-icons">
+            <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                
+<li>
+	<a href="https://nh0627.github.io/feed.xml" title="Follow RSS feed">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="mailto:naboee0627@gmail.com" title="Email">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/nh0627" title="Follow on GitHub">
+		<span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+        </span>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
