@@ -1,0 +1,118 @@
+---
+layout: post
+title:  "React - Context System with React"
+date:   2019-01-09
+author: Nahyeon Lee
+categories: udemy-react
+tags: react context
+---
+### Props System
+* Gets data from a parent component to a direct child component
+
+### Context System
+* Gets data from a parent component to any arbitrary nested child component, so it does not have to be a direct one to one communication as props system.
+
+#### Two ways to get information out of or into a context object
+<img src="{{ '/assets/img/posts/2019-01-09-context-two-way.png' }}" alt="context">
+* Get information into a context object
+  1. Setting up a default value
+  2. Creating a provider component in a parent component
+* Get infomation out of a context object
+  1. Reference a context property inside of a nested child component 
+  2. Creating a component called a consumer inside a nested child component, when we have multiple context objects
+
+#### Example with Context
+App component as below is able to communicate to Button/Field components without UserCreate with a context object
+<img src="{{ '/assets/img/posts/2019-01-09-context.png' }}" alt="example">
+
+{% highlight javascript  %}
+// LanguageContext.js - Context object
+import React from 'react';
+
+// Set a "default value"
+export default React.createContext('english'); 
+{% endhighlight %}
+
+{% highlight javascript  %}
+// Field.js
+import React from 'react';
+import LanguageContext from '../contexts/LanguageContext';
+
+class Field extends React.Component {
+    // Reference a context property inside of a nested child component
+    // It should be called "contextType" exactly
+    static contextType = LanguageContext; 
+
+    render() {
+        // Upon the context, the text will be changed
+        const text = this.context === 'english' ? 'Name' : '이름';
+        return (
+            <div className="ui field">
+                <label>{ text }:</label>
+                <input />
+            </div>
+        );
+    }
+}
+export default Field;
+{% endhighlight %}
+
+{% highlight javascript  %}
+// Button.js
+import React from 'react';
+import LanguageContext from '../contexts/LanguageContext';
+
+class Button extends React.Component {
+    render() {
+        return <button className="ui button primary">
+            {/* Creating a component called a consumer inside a nested child component */}
+            <LanguageContext.Consumer>
+                { (value) => value === 'english'? 'Submit' : '제출'}
+            </LanguageContext.Consumer>
+        </button>
+    }
+}
+
+export default Button;
+{% endhighlight %}
+
+{% highlight javascript  %}
+// App.js
+import React from 'react';
+import UserCreate from './UserCreate';
+import LanguageContext from '../contexts/LanguageContext';
+
+class App extends React.Component {
+    state = { language: 'english' };
+
+    onLanguageChange = language => {
+        this.setState({ language });
+    };
+
+    render() {
+        return (
+            <div className="ui container">
+                <div>
+                    Select a language:
+                    <i className="flag us" onClick={ () => this.onLanguageChange('english') }/>
+                    <i className="flag kr" onClick={ () => this.onLanguageChange('dutch') }/>
+                </div>
+                {/* Creating a provider component in a parent component to get information from the context object */}
+                <LanguageContext.Provider value={this.state.language}>
+                    <UserCreate />
+                </LanguageContext.Provider>
+            </div>
+        );
+    }
+}
+
+export default App;
+{% endhighlight %}
+
+#### Example Repository
+[Here][app-repo]
+
+The source of this post and code is from [Modern React with Redux][udemy-react].
+
+[app-repo]: https://github.com/nh0627/udemy-react-redux/tree/master/23.translate
+[udemy-react]: https://www.udemy.com/react-redux/
